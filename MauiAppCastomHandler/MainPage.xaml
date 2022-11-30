@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:controls="clr-namespace:MauiAppCastomHandler.Controls"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="MauiAppCastomHandler.MainPage">
 
     <ScrollView>
@@ -9,10 +10,23 @@
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-            <controls:CastomDataPiker/>
-            <controls:CastomDataPiker/>
+            <controls:CastomDataPiker
+                x:Name="For"/>
+            <controls:CastomDataPiker
+                 x:Name="To"
+             MinDateValue="{Binding DateValue, Source={x:Reference For}}"
+              />
+            <Label
+                Text="{Binding DateValue, Source={x:Reference For}}"/>
+            <Label
+                Text="{Binding DateValue, Source={x:Reference To}}"/>
 
         </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
+
+
+
+<!--MinDateValue="{Binding DateValue, Source={x:Reference For}}"
+                IsVisible="{Binding IsNotEmpty, Source={x:Reference For}}"-->

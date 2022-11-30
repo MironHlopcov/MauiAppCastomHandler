@@ -17,31 +17,27 @@ namespace MauiAppCastomHandler.Controls
                 if (view is EmptyDataPiker)
                 {
 #if ANDROID
+                    var epdp = ((EmptyDataPiker)view);
                     var x2 = handler.PlatformView as Android.Widget.TextView;
                     x2.SetBackgroundColor(Android.Graphics.Color.Transparent);
-                    x2.TextChanged += (s, e) =>
-                    {
-                        var epdp = ((EmptyDataPiker)view);
-                        if (x2.Text != "Choose date")
-                            epdp.IsEmpty = false;
-                        else
-                            epdp.IsEmpty = true;
-                    };
+                  
                     x2.Click += X2_Click;
-                    ((EmptyDataPiker)view).Loaded += (s, e) =>
+                    epdp.Loaded += (s, e) =>
                     {
                         x2.Text = "Choose date";
                     };
-                    ((EmptyDataPiker)view).EmptyChanged += (s, v) =>
+                    epdp.EmptyChanged += (s, v) =>
                     {
-
                         if (v == true)
+                        {
                             x2.Text = "Choose date";
+                        }
                     };
-
 
                     void X2_Click(object sender, EventArgs e)
                     {
+                        if (x2.Text == "Choose date")
+                            epdp.Date = DateTime.Now;
                         MauiDatePicker c = (MauiDatePicker)sender;
                         c.ShowPicker.Invoke();
                         x2.Text = DateTime.Now.ToShortDateString();

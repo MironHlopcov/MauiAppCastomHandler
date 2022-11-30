@@ -1,4 +1,6 @@
-﻿using Android.Graphics;
+﻿#if ANDROID
+using Android.Graphics;
+#endif
 using MauiAppCastomHandler.Controls;
 using Microsoft.Maui.Platform;
 using static MauiAppCastomHandler.Controls.CastomDataPiker;
