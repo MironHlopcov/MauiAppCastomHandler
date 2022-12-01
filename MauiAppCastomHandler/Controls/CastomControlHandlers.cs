@@ -22,6 +22,14 @@ namespace MauiAppCastomHandler.Controls
                     x2.SetBackgroundColor(Android.Graphics.Color.Transparent);
                   
                     x2.Click += X2_Click;
+                    x2.TextChanged += (s, e) =>
+                    {
+                        //var epdp = ((EmptyDataPiker)view);
+                        //if (x2.Text != "Choose date")
+                        //    epdp.IsEmpty = false;
+                        //else
+                        //    epdp.IsEmpty = true;
+                    };
                     epdp.Loaded += (s, e) =>
                     {
                         x2.Text = "Choose date";
@@ -33,10 +41,10 @@ namespace MauiAppCastomHandler.Controls
                             x2.Text = "Choose date";
                         }
                     };
-
                     void X2_Click(object sender, EventArgs e)
                     {
                         if (x2.Text == "Choose date")
+                            epdp.Date = DateTime.Now.AddDays(1);
                             epdp.Date = DateTime.Now;
                         MauiDatePicker c = (MauiDatePicker)sender;
                         c.ShowPicker.Invoke();
