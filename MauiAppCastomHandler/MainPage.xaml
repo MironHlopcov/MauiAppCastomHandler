@@ -10,17 +10,15 @@
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-            <controls:CastomDataPiker
+            <controls:MyDatePieker
                 x:Name="For"/>
-            <controls:CastomDataPiker
-                 x:Name="To"
-             MinDateValue="{Binding DateValue, Source={x:Reference For}}"
-              />
+            <controls:MyDatePieker
+                x:Name="To"
+                MinDateValue="{Binding DateValue, Source={x:Reference For}}"/>
             <Label
                 Text="{Binding DateValue, Source={x:Reference For}}"/>
             <Label
                 Text="{Binding DateValue, Source={x:Reference To}}"/>
-
         </VerticalStackLayout>
     </ScrollView>
 
@@ -30,3 +28,13 @@
 
 <!--MinDateValue="{Binding DateValue, Source={x:Reference For}}"
                 IsVisible="{Binding IsNotEmpty, Source={x:Reference For}}"-->
+
+
+<!--<controls:CastomDataPiker
+                x:Name="For"/>
+<controls:CastomDataPiker
+                 x:Name="To"
+             MinDateValue="{Binding DateValue, Source={x:Reference For}}"/>-->
+
+<!--<Label
+                Text="{Binding DateValue, Source={x:Reference To}}"/>-->

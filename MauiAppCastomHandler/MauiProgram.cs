@@ -20,7 +20,8 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		CastomControlHandlers myHandlr = new();
+        //CastomControlHandlers myHandlr = new();
+        MyCastomControlHandler myHandlr = new();
 
         return builder.Build();
 	}
